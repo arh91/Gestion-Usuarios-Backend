@@ -57,6 +57,10 @@ public class UsuarioService {
         return usuarioRepository.save(antiguoUsuario);
     }
 
+    public boolean existsByNick(String nick) {
+        return usuarioRepository.existsByNick(nick);
+    }
+
     public Usuario autenticarUsuario(String nick, String contraseña) {
         Usuario usuario = usuarioRepository.findByNickAndPassword(nick, contraseña);
         if (usuario != null) {
@@ -68,24 +72,6 @@ public class UsuarioService {
     public void actualizarEstadoConectado(String nick, boolean conectado) {
         usuarioRepository.actualizarEstadoConectado(nick, conectado);
     }
-
-    /*
-     * public Usuario autenticarUsuario(String nick, String password) {
-     * return usuarioRepository.findByNickAndPassword(nick, password);
-     * }
-     */
-
-    /*
-     * public ResponseEntity<String> autenticarUsuario(String nick, String password)
-     * {
-     * Usuario usuario = usuarioRepository.findByNickAndPassword(nick, password);
-     * if (usuario != null) {
-     * return ResponseEntity.ok("Autenticación exitosa");
-     * } else {
-     * return ResponseEntity.status(401).body("Usuario o contraseña incorrectos");
-     * }
-     * }
-     */
 
     public String login(Usuario usuario) {
         // Lógica de autenticación (solo como ejemplo)

@@ -16,4 +16,6 @@ public interface UsuarioRepository extends JpaRepository<Usuario, String> {
     @Modifying
     @Query("UPDATE Usuario u SET u.conectado = :conectado WHERE u.nick = :nick")
     void actualizarEstadoConectado(@Param("nick") String nick, @Param("conectado") boolean conectado);
+
+    boolean existsByNick(String nick);
 }

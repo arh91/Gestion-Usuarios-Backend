@@ -27,21 +27,11 @@ public class UsuarioController {
         return usuarioService.crearUsuario(usuario);
     }
 
-    /*
-     * @PostMapping("/autenticar")
-     * public ResponseEntity<Usuario> autenticarUsuario(@RequestBody Usuario
-     * usuario) {
-     * Usuario usuarioAutenticado =
-     * usuarioService.autenticarUsuario(usuario.getNick(), usuario.getContraseña());
-     * if (usuarioAutenticado != null) {
-     * return ResponseEntity.ok(usuarioAutenticado);
-     * } else {
-     * // return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Credenciales
-     * // incorrectas");
-     * return ResponseEntity.status(401).build();
-     * }
-     * }
-     */
+    @GetMapping("/validarNick/{nick}")
+    public ResponseEntity<Boolean> validarNick(@PathVariable String nick) {
+        boolean exists = usuarioService.existsByNick(nick);
+        return ResponseEntity.ok(exists);
+    }
 
     @PostMapping("/autenticar")
     public ResponseEntity<Usuario> autenticarUsuario(@RequestParam String nick, @RequestParam String contraseña) {
