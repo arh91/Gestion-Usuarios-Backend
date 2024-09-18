@@ -1,2 +1,7 @@
-main\java\com\example\usuarios\UsuarioServiceApplication.class
-main\java\com\example\usuarios\controller\UsuarioController.class
+com\example\usuarios\repository\UsuarioRepository.class
+com\example\usuarios\service\UsuarioService.class
+com\example\usuarios\WebConfig$1.class
+com\example\usuarios\model\Usuario.class
+com\example\usuarios\UsuarioServiceApplication.class
+com\example\usuarios\WebConfig.class
+com\example\usuarios\controller\UsuarioController.class
