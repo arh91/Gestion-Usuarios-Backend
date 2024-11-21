@@ -1,12 +1,12 @@
 package com.example.usuarios.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import javax.persistence.Id;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+import jakarta.persistence.Id;
 
 import java.time.LocalDateTime;
 
-import javax.persistence.Column;
+import jakarta.persistence.Column;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity
