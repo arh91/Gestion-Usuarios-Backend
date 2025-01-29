@@ -5,8 +5,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
+import java.util.Optional;
+
 import com.example.usuarios.service.UsuarioService;
 import com.example.usuarios.model.Usuario;
+import com.example.usuarios.repository.UsuarioRepository;
 
 @RestController
 @RequestMapping("/usuarios")
@@ -15,6 +18,11 @@ public class UsuarioController {
 
     @Autowired
     private UsuarioService usuarioService;
+
+    @Autowired
+    private UsuarioRepository usuarioRepository;
+
+    Usuario u = new Usuario();
 
     @PostMapping("/login")
     public String login(@RequestBody Usuario usuario) {
@@ -27,10 +35,26 @@ public class UsuarioController {
         return usuarioService.crearUsuario(usuario);
     }
 
-    @GetMapping("/validarNick/{nick}")
-    public ResponseEntity<Boolean> validarNick(@PathVariable String nick) {
-        boolean exists = usuarioService.existsByNick(nick);
-        return ResponseEntity.ok(exists);
+    @PostMapping("/enviar-codigo")
+    public ResponseEntity<String> enviarCodigoRecuperacionContrasenha(@RequestParam String nick) {
+        System.out.println("ENVIANDO CÓDIGO RECUPERACIÓN...");
+        String codVerificacion = usuarioService.generarCodigoVerificacion();
+        u.setCodigoVerificacion(codVerificacion);
+        Optional<String> optionalMail = usuarioRepository.getMailByNick(nick);
+        String mail = optionalMail.get();
+
+        // Llamamos al método para enviar el correo de verificación
+        try {
+            usuarioService.enviarCodigoVerificacion(mail, codVerificacion);
+        } catch (Exception e) {
+            // Se registra el error y retorna un error HTTP 500
+            System.out.println("Error al enviar el código: " + e.getMessage());
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("No se pudo enviar el código de verificación. Intente de nuevo.");
+        }
+
+        // Retornar una respuesta de éxito
+        return ResponseEntity.status(HttpStatus.CREATED).body("Se ha enviado un mail a su cuenta de correo.");
     }
 
     @PostMapping("/autenticar")
@@ -59,6 +83,20 @@ public class UsuarioController {
     @GetMapping("/{id}")
     public Usuario obtenerUsuarioPorId(@PathVariable String id) {
         return usuarioService.obtenerUsuarioPorId(id);
+    }
+
+    // Endpoint que devuelve el código de recuperación de contraseña enviado al
+    // usuario por correo
+    @GetMapping("/obtener-codigo")
+    public String obtenerCodigoRecuperacion() {
+        String codigo = u.getCodigoVerificacion();
+        return codigo;
+    }
+
+    @GetMapping("/validarNick/{nick}")
+    public ResponseEntity<Boolean> validarNick(@PathVariable String nick) {
+        boolean exists = usuarioService.existsByNick(nick);
+        return ResponseEntity.ok(exists);
     }
 
     // Endpoint para eliminar un usuario por su ID

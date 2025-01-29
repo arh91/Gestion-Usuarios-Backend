@@ -1,5 +1,7 @@
 package com.example.usuarios.repository;
 
+import java.util.Optional;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -11,6 +13,9 @@ public interface UsuarioRepository extends JpaRepository<Usuario, String> {
 
     @Query("SELECT u FROM Usuario u WHERE u.nick = :nick AND u.contraseña = :password")
     Usuario findByNickAndPassword(@Param("nick") String nick, @Param("password") String password);
+
+    @Query("SELECT u.email FROM Usuario u WHERE u.nick = :nick")
+    Optional<String> getMailByNick(@Param("nick") String nick);
 
     @Transactional
     @Modifying

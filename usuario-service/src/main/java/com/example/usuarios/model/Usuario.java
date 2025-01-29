@@ -38,6 +38,8 @@ public class Usuario {
 	@JsonProperty("conectado")
 	private boolean conectado;
 
+	private String codigoVerificacion;
+
 	public Usuario() {
 		super();
 	}
@@ -104,6 +106,14 @@ public class Usuario {
 
 	public LocalDateTime getFecRegistro() {
 		return fecRegistro;
+	}
+
+	public String getCodigoVerificacion() {
+		return codigoVerificacion;
+	}
+
+	public void setCodigoVerificacion(String codigoVerificacion) {
+		this.codigoVerificacion = codigoVerificacion;
 	}
 
 }
