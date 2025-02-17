@@ -27,6 +27,7 @@ mvn install
 
 ```sh
 After installing the dependencies, you can start the application by running the next command:
+
 mvn spring-boot:run
 ```
 
