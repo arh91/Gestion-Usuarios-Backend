@@ -26,7 +26,8 @@ mvn install
 ## Usage
 
 ```sh
-After installing the dependencies, you can start the application by running the next command:mvn spring-boot:run
+After installing the dependencies, you can start the application by running the next command:
+mvn spring-boot:run
 ```
 
 ## Run tests
@@ -42,7 +43,8 @@ mvn test
 
 ## 🤝 Contributing
 
-Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/arh91/Gestion-Usuarios-Backend/issues). 
+Contributions, issues and feature requests are welcome!<br />
+Feel free to check [issues page](https://github.com/arh91/Gestion-Usuarios-Backend/issues). 
 
 
 ## Show your support
