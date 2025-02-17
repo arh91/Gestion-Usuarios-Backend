@@ -87,7 +87,7 @@ mvn test
 
 ## Author
 
-👤 **ARH91**
+👤 **arh91**
 
 
 ## 🤝 Contributing
