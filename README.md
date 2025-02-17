@@ -5,7 +5,7 @@
   </a>
 </p>
 
-> Backend service for user management in a web application, developed with Java and Spring Boot. It provides basic operations such as:
+Backend service for user management in a web application, developed with Java and Spring Boot. It provides basic operations such as:
 
 - Creating a new user
 - Listing all users
