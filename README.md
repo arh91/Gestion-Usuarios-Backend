@@ -7,7 +7,15 @@
 
 > Backend service for user management in a web application, developed with Java and Spring Boot. It provides basic operations such as:
 
-### 🏠 [Homepage](This service uses a local MySQL database to store user data.)
+- Creating a new user
+- Listing all users
+- Updating user details
+- Deleting a user
+
+This service uses a local MySQL database to store user data.
+
+
+
 
 ## Install
 
