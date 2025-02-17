@@ -38,8 +38,7 @@ The project is organized into the following folders:
 ## Clone the Repository
 
 ```sh
-git clone https://github.com/your-username/usuario-service.git
-cd usuario-service
+git clone https://github.com/arh91/Gestion-Usuarios-Backend.git
 ```
 
 
