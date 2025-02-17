@@ -7,10 +7,10 @@
 
 Backend service for user management in a web application, developed with Java and Spring Boot. It provides basic operations such as:
 
-- Creating a new user
-- Listing all users
-- Updating user details
-- Deleting a user
+- Creating new users.
+- Listing all users.
+- Updating user details.
+- Deleting a user.
 
 This service uses a local MySQL database to store user data.
 
@@ -25,9 +25,9 @@ mvn install
 
 ## Usage
 
-```sh
 After installing the dependencies, you can start the application by running the next command:
 
+```sh
 mvn spring-boot:run
 ```
 
