@@ -5,6 +5,8 @@
   </a>
 </p>
 
+## Description
+
 Backend service for user management in a web application, developed with Java and Spring Boot. It provides basic operations such as:
 
 - Creating new users.
@@ -13,6 +15,24 @@ Backend service for user management in a web application, developed with Java an
 - Deleting a user.
 
 This service uses a local MySQL database to store user data.
+
+## Project Structure
+
+The project is organized into the following folders:
+
+- Controller: Handles HTTP requests and responses.
+- Model: Defines data models and entities.
+- Service: Contains business logic and processing.
+- Repository: Interfaces with the database using Spring Data JPA.
+
+## Technologies Used
+
+- Java 17 (or higher)
+- Spring Boot (latest version)
+- Spring Data JPA
+- MySQL
+- Maven
+
 
 
 
