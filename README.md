@@ -5,6 +5,8 @@
   </a>
 </p>
 
+## Description
+
 Backend service for user management in a web application, developed with Java and Spring Boot. It provides basic operations such as:
 
 - Creating new users.
@@ -15,6 +17,52 @@ Backend service for user management in a web application, developed with Java an
 This service uses a local MySQL database to store user data.
 
 
+## Project Structure
+
+The project is organized into the following folders:
+
+- Controller: Handles HTTP requests and responses.
+- Model: Defines data models and entities.
+- Service: Contains business logic and processing.
+- Repository: Interfaces with the database using Spring Data JPA.
+
+
+## Technologies Used
+
+- Java 17 (or higher)
+- Spring Boot (latest version)
+- Spring Data JPA
+- MySQL
+- Maven
+
+## Clone the Repository
+
+```sh
+git clone https://github.com/arh91/Gestion-Usuarios-Backend.git
+```
+
+
+## Set Up the Database 
+
+Ensure MySQL is installed and running locally. Create a database named usuarios_db:
+
+```sh
+CREATE DATABASE usuarios_db;
+```
+
+
+## Configure the Application
+
+Edit src/main/resources/application.properties to set up the database connection:
+
+```sh
+spring.datasource.url=jdbc:mysql://localhost:3306/usuarios_db
+spring.datasource.username=your_username
+spring.datasource.password=your_password
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL8Dialect
+```
 
 
 ## Install
@@ -39,7 +87,7 @@ mvn test
 
 ## Author
 
-👤 **ARH91**
+👤 **arh91**
 
 
 ## 🤝 Contributing
@@ -57,6 +105,3 @@ Give a ⭐️ if this project helped you!
 
 This project is [MIT ](https://opensource.org/licenses/MIT) licensed.
 
-
-***
-_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
